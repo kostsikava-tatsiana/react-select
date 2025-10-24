@@ -277,6 +277,8 @@ export interface Props<
   form?: string;
   /** Marks the value-holding input as required for form validation */
   required?: boolean;
+  /** Data attributes to be applied to the select container */
+  dataAttributes?: Record<string, string>;
 }
 
 export const defaultProps = {
@@ -2202,7 +2204,7 @@ export default class Select<
     const { Control, IndicatorsContainer, SelectContainer, ValueContainer } =
       this.getComponents();
 
-    const { className, id, isDisabled, menuIsOpen } = this.props;
+    const { className, id, isDisabled, menuIsOpen, dataAttributes } = this.props;
     const { isFocused } = this.state;
     const commonProps = (this.commonProps = this.getCommonProps());
 
@@ -2213,6 +2215,7 @@ export default class Select<
         innerProps={{
           id: id,
           onKeyDown: this.onKeyDown,
+          ...dataAttributes,
         }}
         isDisabled={isDisabled}
         isFocused={isFocused}
@@ -2251,4 +2254,7 @@ export type PublicBaseSelectProps<
   Option,
   IsMulti extends boolean,
   Group extends GroupBase<Option>
-> = JSX.LibraryManagedAttributes<typeof Select, Props<Option, IsMulti, Group>>;
+> = JSX.LibraryManagedAttributes<typeof Select, Props<Option, IsMulti, Group>> & {
+  /** Data attributes to be applied to the select container */
+  dataAttributes?: Record<string, string>;
+};
