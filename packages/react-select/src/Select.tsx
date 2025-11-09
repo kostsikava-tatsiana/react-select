@@ -2215,7 +2215,7 @@ export default class Select<
         innerProps={{
           id: id,
           onKeyDown: this.onKeyDown,
-          ...dataAttributes,
+          ...(dataAttributes || {}),
         }}
         isDisabled={isDisabled}
         isFocused={isFocused}
@@ -2254,7 +2254,4 @@ export type PublicBaseSelectProps<
   Option,
   IsMulti extends boolean,
   Group extends GroupBase<Option>
-> = JSX.LibraryManagedAttributes<typeof Select, Props<Option, IsMulti, Group>> & {
-  /** Data attributes to be applied to the select container */
-  dataAttributes?: Record<string, string>;
-};
+> = JSX.LibraryManagedAttributes<typeof Select, Props<Option, IsMulti, Group>>;
