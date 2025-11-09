@@ -2328,8 +2328,8 @@ cases(
     expect(selectContainer!.getAttribute('data-testid')).toBe('test-select');
   },
   {
-    'single select > should pass dataAttributes prop down to container': {},
-    'multi select > should pass dataAttributes prop down to container': {
+    'single select > should pass dataAttributes prop down to the container': {},
+    'multi select > should pass dataAttributes prop down to the container': {
       props: {
         ...BASIC_PROPS,
         dataAttributes: { 'data-testid': 'test-select' },
