@@ -2320,7 +2320,12 @@ cases(
 
 cases(
   'accessibility > passes through dataAttributes prop',
-  ({ props = { ...BASIC_PROPS, dataAttributes: { 'data-testid': 'test-select' } } }) => {
+  ({
+    props = {
+      ...BASIC_PROPS,
+      dataAttributes: { 'data-testid': 'test-select' },
+    },
+  }) => {
     let { container } = render(<Select {...props} />);
     // The data attributes should be on the outermost div (SelectContainer)
     const selectContainer = container.querySelector('div[data-testid]');

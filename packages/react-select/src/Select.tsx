@@ -407,7 +407,11 @@ function buildCategorizedOptions<
 ): CategorizedGroupOrOption<Option, Group>[] {
   return props.options
     .map((groupOrOption, groupOrOptionIndex) => {
-      if ('options' in groupOrOption) {
+      if (
+        groupOrOption &&
+        typeof groupOrOption === 'object' &&
+        'options' in groupOrOption
+      ) {
         const categorizedOptions = groupOrOption.options
           .map((option, optionIndex) =>
             toCategorizedOption(props, option, selectValue, optionIndex)
@@ -2204,7 +2208,8 @@ export default class Select<
     const { Control, IndicatorsContainer, SelectContainer, ValueContainer } =
       this.getComponents();
 
-    const { className, id, isDisabled, menuIsOpen, dataAttributes } = this.props;
+    const { className, id, isDisabled, menuIsOpen, dataAttributes } =
+      this.props;
     const { isFocused } = this.state;
     const commonProps = (this.commonProps = this.getCommonProps());
 

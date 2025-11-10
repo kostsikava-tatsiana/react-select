@@ -12,7 +12,7 @@ export default () => (
     className="basic-multi-select"
     classNamePrefix="select"
     dataAttributes={{
-      'data-testid': 'basic-multi-select'
+      'data-testid': 'basic-multi-select',
     }}
   />
 );

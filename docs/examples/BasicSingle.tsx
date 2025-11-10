@@ -31,7 +31,7 @@ export default () => {
         name="color"
         options={colourOptions}
         dataAttributes={{
-          'data-testid': 'basic-single-select'
+          'data-testid': 'basic-single-select',
         }}
       />
 
